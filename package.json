@@ -1,0 +1,20 @@
+{
+  "name": "mongoose-live",
+  "version": "0.0.4",
+  "description": "A simple REPL integration for Mongoose",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["mongoose","repl"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeremyrrose/mongoose-live.git"
+  },
+  "author": "Jeremy Rose",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeremyrrose/mongoose-live/issues"
+  },
+  "homepage": "https://github.com/jeremyrrose/mongoose-live#readme"
+}
