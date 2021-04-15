@@ -9,11 +9,16 @@
 ```js
 const live = require('mongoose-live')
 ```
-3. Invoke the package, providing a `mongoose.connection` object and a `models` object (optional) as arguments:
+3. Invoke the package, providing a `mongoose.connection` object, a `models` object (optional), and an object with any desired context variables (optional) as arguments:
 ```js
 const db = require('../db')
 const models = require('../models)
-live(db, models)
+const context = {
+    searchUsersByName: async function (name) {
+        return await User.find({name: {$regex: name, $options: "i"}})
+    }
+}
+live(db, models, context)
 ```
 4. Execute the file using the `--experimental-repl-await` flag either from the command line or from an `npm` script:
 ```bash
