@@ -2,17 +2,19 @@
 
 ### A simple REPL integration for Mongoose
 
+## Why?
+
+Many developers are accustomed to using the Django shell or Rails console to test database interactions via data models. Mongoose does not have a native REPL -- this module provides an easy-to-implement option.
+
 ## Usage
 
 1. Install the package: `npm i mongoose-live`
-2. In a file (`repl.js` suggested), `require` the package: 
+2. In a file (`repl.js`, perhaps), `require` the package... 
+3. Then invoke the package, providing [a `mongoose.connection` object](https://mongoosejs.com/docs/api/mongoose.html#mongoose_Mongoose-connection) and a `models` object (optional, see below for details) as arguments:
 ```js
-const live = require('mongoose-live')
-```
-3. Invoke the package, providing a `mongoose.connection` object and a `models` object (optional) as arguments:
-```js
-const db = require('./db')
-const models = require('./models')
+const live = require('mongoose-live') // requires the package
+const db = require('./db') // a mongoose.connection object
+const models = require('./models') // must be an object; keys available in REPL context
 live(db, models)
 ```
 4. Execute the file using the `--experimental-repl-await` flag either from the command line or from an `npm` script:
@@ -25,10 +27,24 @@ or (in `package.json.scripts`)
 ```
 ... and then execute `npm run repl`.
 
-5. Interact with your Mongoose project!
+5. Interact with your Mongoose models using any methods you would use in an API controller or any other Node.js environment.
+
+## The Models Object
+
+The `models` object provided as an argument should be an object with keys matching the names of each Mongoose model. These keys will be available as variables in the REPL context. Example:
+
+```js
+const User = require('./models/user.js') // imports the User model
+const Task = require('./models/task.js') // imports the Task model
+const models = { User, Task } // provided as argument, enables User and Task in REPL
+```
+
+If your project already includes a "models" directory whose `index.js` exports an object that includes all models, you may `require` that directory directly.
 
 ## Options
-Additional variables may be added to the REPL context as an object:
+
+Additional variables may optionally be added to the REPL context as an object:
+
 ```js
 const db = require('./db')
 const models = require('./models')
