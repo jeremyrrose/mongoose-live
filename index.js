@@ -23,4 +23,4 @@ await is${experimental ? "": " NOT"} enabled at the top level.`
     })
 }
 
-export default main;
+module.exports = main;
