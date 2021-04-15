@@ -12,7 +12,7 @@ const live = require('mongoose-live')
 3. Invoke the package, providing a `mongoose.connection` object and a `models` object (optional) as arguments:
 ```js
 const db = require('./db')
-const models = require('../models')
+const models = require('./models')
 live(db, models)
 ```
 4. Execute the file using the `--experimental-repl-await` flag either from the command line or from an `npm` script:
