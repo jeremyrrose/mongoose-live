@@ -1,12 +1,12 @@
 {
   "name": "mongoose-live",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "A simple REPL integration for Mongoose",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["mongoose","repl"],
+  "keywords": ["mongoose","repl","shell","console"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jeremyrrose/mongoose-live.git"
