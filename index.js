@@ -5,7 +5,9 @@ const main = (dbConnection, models={}, context={}) => {
 await is${experimental ? "": " NOT"} enabled at the top level.`
 
     console.log(welcome, experimental ? "" : "\nFor best results, please add --experimental-repl-await to your script or command line.")
-    console.log("Available DB Models:", Object.keys(models))
+    if (Object.keys(models).length) {
+        console.log("Available DB Models:", Object.keys(models))
+    }
     if (Object.keys(context).length) {
         console.log("Additional context variables:", Object.keys(context))
     }
