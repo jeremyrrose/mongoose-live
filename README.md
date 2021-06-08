@@ -6,13 +6,28 @@
 
 Many developers are accustomed to using the Django shell or Rails console to test database interactions via data models. Mongoose does not have a native REPL -- this module provides an easy-to-implement option.
 
-## Usage
-
 >An automated installation script for this package is also available: [`npx create-mongoose-live`](https://www.npmjs.com/package/create-mongoose-live)
+
+## Syntax
+
+```javascript
+live(dbConnection, models, context, options)
+```
+`live` is the function exported from the `mongoose-live` NPM package.
+
+### Parameters
+* `dbConnection` : A `Mongoose.connection` object. (Required.)
+* `models` : A JS object whose keys will be available as variables within the REPL context, and whose values are expected to be Mongoose models. (Default: `{}`)
+* `context` : Additional variables to be made available following the key/value pattern above. (Default: `{}`)
+* `options` : A JS object containing additional configuration options. For valid keys and arguments, see below. (Default: `{}`)
+
+
+
+## Typical Usage
 
 1. Install the package: `npm i mongoose-live`
 2. In a file (`repl.js`, perhaps), `require` the package... 
-3. Then invoke the package, providing [a `mongoose.connection` object](https://mongoosejs.com/docs/api/mongoose.html#mongoose_Mongoose-connection) and a `models` object (optional, see below for details) as arguments:
+3. Then invoke the package, providing [a `Mongoose.connection` object](https://mongoosejs.com/docs/api/mongoose.html#mongoose_Mongoose-connection) and a `models` object (optional, see below for details) as arguments:
 ```js
 const live = require('mongoose-live') // requires the package
 const db = require('./db') // a mongoose.connection object
