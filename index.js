@@ -8,7 +8,7 @@ const main = async (dbConnection, models={}, context={}, options={}) => {
 `
 \u001b[34mWelcome to the Mongoose Live REPL!\u001b[0m
 Documentation: https://www.npmjs.com/package/mongoose-live
-Edit \u001b[32m${module.parent.filename}\u001b[0m to configure.
+${module.parent.filename ? `Edit \u001b[32m${module.parent.filename}\u001b[0m to configure.` : "" }
 
 \u001b[34mStatus:\u001b[0m
 \u001b[32mawait\u001b[0m is${experimental ? "" : " \u001b[31mNOT\u001b[0m"} enabled at the top level.`

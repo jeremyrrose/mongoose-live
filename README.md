@@ -13,7 +13,7 @@ Many developers are accustomed to using the Django shell or Rails console to tes
 ```javascript
 live(dbConnection, models, context, options)
 ```
-`live` is the function exported from the `mongoose-live` NPM package.
+`live` here refers to the function exported from the `mongoose-live` NPM package.
 
 ### Parameters
 * `dbConnection` : A `Mongoose.connection` object. (Required.)
@@ -21,9 +21,15 @@ live(dbConnection, models, context, options)
 * `context` : Additional variables to be made available following the key/value pattern above. (Default: `{}`)
 * `options` : A JS object containing additional configuration options. For valid keys and arguments, see below. (Default: `{}`)
 
+## Messaging Output
+On startup, the following are printed prior to the first REPL prompt:
+* The location of the parent module.
+* The availability of the `await` keyword.
+* The status of the database connection.
+* The models made available by the `models` object.
+* Additional variables made available by the `context` object.
 
-
-## Typical Usage
+## Typical Installation
 
 1. Install the package: `npm i mongoose-live`
 2. In a file (`repl.js`, perhaps), `require` the package... 
@@ -75,9 +81,12 @@ live(db, models, context) // in addition to models, searchUsersByName will be av
 
 ## Options
 
-An `options` object may also be provided. Available options may be expanded, but currently include:
+An `options` object may also be provided. Available options currently include:
 
 * `prompt`: Define a custom prompt to use in place of `MongooseLive> `.
+
+## Requirements
+The `--experimental-repl-await` flag requires Node v10+. 
 
 ## Known Issues
 
